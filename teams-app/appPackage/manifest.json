@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.24",
+  "version": "1.0.3",
+  "id": "8c2c3b6d-9a4b-4c9e-bb1e-1f8a4e77d902",
+
+  "developer": {
+    "name": "AED CIQ 2",
+    "websiteUrl": "https://vicenary-eccentrically-elinor.ngrok-free.dev",
+    "privacyUrl": "https://vicenary-eccentrically-elinor.ngrok-free.dev",
+    "termsOfUseUrl": "https://vicenary-eccentrically-elinor.ngrok-free.dev"
+  },
+
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+
+  "name": {
+    "short": "AED CIQ 2",
+    "full": "AED C-IQ Customer Intelligence"
+  },
+
+  "description": {
+    "short": "Customer Intelligence dashboard",
+    "full": "AED C-IQ enables CSAMs to validate and update mission-critical customer information directly inside Microsoft Teams."
+  },
+
+  "accentColor": "#6A5CFF",
+
+  "staticTabs": [
+    {
+      "entityId": "customeriq",
+      "name": "Customer IQ",
+      "contentUrl": "https://vicenary-eccentrically-elinor.ngrok-free.dev",
+      "websiteUrl": "https://vicenary-eccentrically-elinor.ngrok-free.dev",
+      "scopes": ["personal"]
+    }
+  ],
+
+  "permissions": ["identity"],
+
+  "validDomains": [
+    "vicenary-eccentrically-elinor.ngrok-free.dev"
+  ]
+}

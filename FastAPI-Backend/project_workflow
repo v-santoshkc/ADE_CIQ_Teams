@@ -1,0 +1,10 @@
+FastAPI-Backend/
+├─ app/
+│  ├─ __init__.py
+│  ├─ main.py          # FastAPI app + /csams route
+│  ├─ settings.py      # DB URL & CORS config from .env
+│  ├─ db.py            # SQLAlchemy engine + AsyncSession
+│  ├─ models.py        # SQLAlchemy ORM models (SQL tables)
+│  └─ schemas.py       # Pydantic response models for API
+├─ .env                # DB connection string & CORS origins
+└─ requirements.txt    # (optional; you’re using conda)
