@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: FastAPI-Backend
+          path: ./FastAPI-Backend
             .
             !antenv/
 
@@ -77,6 +77,7 @@ jobs:
           slot-name: 'Production'
 
           
+
 
 
 
