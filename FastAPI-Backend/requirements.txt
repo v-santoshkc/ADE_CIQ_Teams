@@ -1,6 +1,7 @@
 fastapi
 uvicorn
+gunicorn
 requests
 sqlalchemy
-pyodbc  # "DRIVER={ODBC Driver 18 for SQL Server};"
-gunicorn
+
+# pyodbc  # "DRIVER={ODBC Driver 18 for SQL Server};"
