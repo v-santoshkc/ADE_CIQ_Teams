@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # REQUIRED for OIDC
+      contents: read
 
     steps:
       - name: Checkout code
@@ -26,6 +29,14 @@ jobs:
       - name: Build React app
         working-directory: chatbot-ui
         run: npm run build
+
+      # ✅ THIS WAS MISSING
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       - name: Deploy build to Azure Web App
         uses: azure/webapps-deploy@v3
