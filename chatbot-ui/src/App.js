@@ -6,7 +6,7 @@ import axios from "axios";
  * Backend runs on localhost:8001
  * DO NOT use ngrok here
  */
-const API = "http://localhost:8002";
+const API = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   const [csam, setCsam] = useState(null);
