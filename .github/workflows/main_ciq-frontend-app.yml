@@ -10,40 +10,25 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
-      # 1️⃣ Checkout repo
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      # 3️⃣ Install & build React
+      - name: Install dependencies
+        working-directory: chatbot-ui
+        run: npm install
+
       - name: Build React app
         working-directory: chatbot-ui
-        run: |
-          npm install
-          npm run build
+        run: npm run build
 
-      # 4️⃣ Login to Azure
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-
-      # 5️⃣ Deploy build folder
-      - name: Deploy to Azure Web App
+      - name: Deploy build to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ciq-Frontend-App
-          slot-name: Production
           package: chatbot-ui/build
